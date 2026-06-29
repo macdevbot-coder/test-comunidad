@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Tip de Productividad - Prompt IA</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="hero">
+    <div class="hero__media" role="presentation">
+      <img src="../assets/images/tip-productividad.jpg" alt="Tablero digital de métricas en verde neón" />
+    </div>
+    <div class="hero__copy">
+      <p class="badge">Tip del martes</p>
+      <h1>Cómo usar un prompt estructurado para ahorrar 2 horas de correos al día</h1>
+      <p>Simplificá tus respuestas, mantené el control y gana foco creativo con esta plantilla lista para copiar.</p>
+      <a class="hero__cta" href="#prompt" aria-label="Ir al prompt copiable">Ver prompt</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="grid" aria-label="Pasos interactivos">
+      <article class="card">
+        <h2>1. Visualiza tu meta</h2>
+        <p>Usá la imagen para recordar qué métricas querés mejorar y conviértela en tu Dashboard de foco.</p>
+      </article>
+      <article class="card">
+        <h2>2. Completa la plantilla</h2>
+        <p>Reemplazá los campos entre llaves con tu contexto y deja que la IA haga el resto.</p>
+      </article>
+      <article class="card">
+        <h2>3. Itera en minutos</h2>
+        <p>Tras cada envío real, actualiza solo la sección de observaciones y ahorra tiempo.</p>
+      </article>
+      <article class="card">
+        <h2>4. Mide el avance</h2>
+        <p>Registra el tiempo ganado y la tasa de respuesta para ver el impacto semanal.</p>
+      </article>
+    </section>
+
+    <section id="prompt" class="prompt" aria-labelledby="prompt-title">
+      <div class="prompt__header">
+        <h2 id="prompt-title">Prompt copiable</h2>
+        <button type="button" class="copy" aria-label="Copiar prompt">Copiar prompt</button>
+      </div>
+      <pre><code>Objetivo: Responder correos pendientes ahorrando 2 horas diarias.
+Contexto clave: {tipo de cliente}, {tema del correo}, {nivel de urgencia}.
+Tono: profesional cercano, directo y positivo.
+Estructura solicitada:
+1. Saludo personalizado breve.
+2. Resumen en una frase del punto principal del correo recibido.
+3. Respuesta en 2 párrafos de máximo 3 frases cada uno, destacando decisiones o próximos pasos.
+4. Lista de bullets con tareas o entregables y responsables.
+5. CTA claro con fecha límite.
+Incluye tres opciones de asunto y una posdata con recordatorio amable.
+</code></pre>
+    </section>
+
+    <section class="cta" aria-label="Llamada a la acción">
+      <div>
+        <h2>Descargá la plantilla</h2>
+        <p>Guardala en tu CRM, compártela con tu equipo y registren cuánto tiempo recuperan cada semana.</p>
+      </div>
+      <a class="hero__cta" href="#" aria-label="Descargar">Descargar</a>
+    </section>
+  </main>
+
+  <footer>
+    <small>Craftdigit Academy · Actualizado hoy</small>
+  </footer>
+
+  <script>
+    const button = document.querySelector('.copy');
+    const codeBlock = document.querySelector('pre');
+    button.addEventListener('click', () => {
+      const selection = window.getSelection();
+      const range = document.createRange();
+      range.selectNodeContents(codeBlock);
+      selection.removeAllRanges();
+      selection.addRange(range);
+      document.execCommand('copy');
+      button.textContent = '¡Copiado!';
+      setTimeout(() => (button.textContent = 'Copiar prompt'), 2000);
+    });
+  </script>
+</body>
+</html>
