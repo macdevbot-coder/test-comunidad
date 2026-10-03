@@ -171,6 +171,45 @@ footer {
   color: var(--text-muted);
 }
 
+.footer-links {
+  margin-top: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.85rem;
+  justify-content: center;
+}
+
+.footer-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.5rem 1.1rem;
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.footer-link:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.25);
+}
+
+.footer-link.whatsapp {
+  background: rgba(37, 211, 102, 0.15);
+  color: #25d366;
+}
+
+.footer-link.github {
+  background: rgba(244, 247, 251, 0.08);
+  color: var(--text-light);
+}
+
+.footer-icon {
+  display: flex;
+}
+
 @media (max-width: 720px) {
   .hero {
     padding: 2rem 1.5rem;

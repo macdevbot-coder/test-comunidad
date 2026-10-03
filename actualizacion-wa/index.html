@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>WhatsApp @username + PIN seguro | Craftdigit</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet" />
+    <style>
+      :root {
+        --azul-plomo: #1f2a36;
+        --azul-plomo-oscuro: #121921;
+        --verde-neon: #39ff14;
+        --gris-suave: #c9d1d9;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family: "Space Grotesk", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        background: linear-gradient(180deg, var(--azul-plomo) 0%, var(--azul-plomo-oscuro) 100%);
+        color: white;
+        min-height: 100vh;
+        padding-bottom: 160px; /* espacio para footer fijo */
+      }
+
+      header {
+        padding: 2.5rem 5vw 1.5rem;
+      }
+
+      header h1 {
+        font-size: clamp(2rem, 4vw, 3.5rem);
+        margin: 0 0 0.5rem;
+      }
+
+      header p {
+        max-width: 640px;
+        line-height: 1.5;
+        color: var(--gris-suave);
+        margin: 0;
+      }
+
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 2rem;
+        padding: 1rem 5vw 3rem;
+        align-items: center;
+      }
+
+      .card {
+        background: rgba(255, 255, 255, 0.04);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 18px;
+        padding: 1.5rem;
+        backdrop-filter: blur(6px);
+      }
+
+      .card h2 {
+        margin-top: 0;
+        margin-bottom: 0.5rem;
+      }
+
+      .impact-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: grid;
+        gap: 0.75rem;
+      }
+
+      .impact-list li {
+        display: flex;
+        gap: 0.75rem;
+        align-items: flex-start;
+      }
+
+      .impact-list span {
+        background: rgba(57, 255, 20, 0.15);
+        color: var(--verde-neon);
+        font-weight: 600;
+        border-radius: 999px;
+        padding: 0.25rem 0.85rem;
+        font-size: 0.85rem;
+      }
+
+      .hero-img {
+        position: relative;
+        border-radius: 24px;
+        overflow: hidden;
+        border: 2px solid rgba(255, 255, 255, 0.08);
+        min-height: 320px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: rgba(0, 0, 0, 0.25);
+      }
+
+      .hero-img img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+      }
+
+      .like-block {
+        margin: 0 5vw 2rem;
+        padding: 1.5rem;
+        border-radius: 18px;
+        background: rgba(31, 42, 54, 0.6);
+        border: 1px solid rgba(57, 255, 20, 0.35);
+      }
+
+      .like-block h3 {
+        margin-top: 0;
+      }
+
+      .like-buttons {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+      }
+
+      .like-buttons button {
+        flex: 1;
+        min-width: 140px;
+        border: none;
+        border-radius: 999px;
+        padding: 0.85rem 1.5rem;
+        background: var(--verde-neon);
+        color: var(--azul-plomo-oscuro);
+        font-weight: 600;
+        cursor: pointer;
+        transition: transform 0.2s ease;
+      }
+
+      .like-buttons button:hover {
+        transform: translateY(-2px) scale(1.02);
+      }
+
+      .data-strip {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+        gap: 1rem;
+        margin: 0 5vw 3rem;
+      }
+
+      .data-card {
+        background: rgba(255, 255, 255, 0.05);
+        padding: 1.25rem;
+        border-radius: 16px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      footer {
+        position: fixed;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(18, 25, 33, 0.95);
+        backdrop-filter: blur(8px);
+        padding: 1rem 5vw 1.5rem;
+        border-top: 1px solid rgba(255, 255, 255, 0.08);
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1.5rem;
+        color: var(--gris-suave);
+      }
+
+      footer section {
+        flex: 1;
+        min-width: 240px;
+      }
+
+      footer h4 {
+        margin: 0 0 0.5rem;
+        color: white;
+      }
+
+      footer a {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.4rem;
+        text-decoration: none;
+        color: var(--verde-neon);
+        font-weight: 600;
+      }
+
+      @media (max-width: 640px) {
+        header,
+        .grid,
+        .like-block,
+        .data-strip {
+          padding-left: 6vw;
+          padding-right: 6vw;
+        }
+
+        .like-buttons {
+          flex-direction: column;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <p class="eyebrow" style="color: var(--verde-neon); letter-spacing: 0.2em; text-transform: uppercase; font-size: 0.85rem;">Actualización WhatsApp · Julio 2026</p>
+      <h1>Tu @username público + PIN privado = contactos sin spam</h1>
+      <p>
+        WhatsApp habilitó los nombres de usuario con arroba y un código PIN de aprobación para que sólo ingresen a tu bandeja los mensajes que autorizás. Activá la dupla y convertí tu canal en el espacio seguro que tu comunidad necesita.
+      </p>
+    </header>
+
+    <section class="grid">
+      <div class="card">
+        <h2>Impacto directo en privacidad</h2>
+        <ul class="impact-list">
+          <li>
+            <span>01</span>
+            <div>
+              <strong>Identidad pública controlada</strong>
+              <p>Compartí tu @username en campañas masivas sin exhibir el número personal ni el de tu equipo.</p>
+            </div>
+          </li>
+          <li>
+            <span>02</span>
+            <div>
+              <strong>PIN como filtro inteligente</strong>
+              <p>El código de seguridad añade una capa adicional: sólo inicia conversación quien recibe tu PIN.</p>
+            </div>
+          </li>
+          <li>
+            <span>03</span>
+            <div>
+              <strong>Confianza en el recorrido</strong>
+              <p>Menos spam + más trazabilidad = audiencias con predisposición real a tus mensajes.</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <div class="hero-img">
+        <img src="../assets/images/bienvenida-hero.jpg" alt="Mockup de interfaz WhatsApp mostrando @username y PIN" />
+      </div>
+    </section>
+
+    <section class="like-block">
+      <h3>¿Te gusta cómo se siente la nueva privacidad?</h3>
+      <p>Dejá que la comunidad lo sepa. Este bloque reacciona en vivo a los clics de tus visitantes.</p>
+      <div class="like-buttons">
+        <button type="button">👍 Me Gusta</button>
+        <button type="button">🔥 Me Encanta</button>
+        <button type="button">🚀 Lo necesito</button>
+      </div>
+    </section>
+
+    <section class="data-strip">
+      <article class="data-card">
+        <h3>@username activado</h3>
+        <p>En Ajustes > Perfil podés reservar tu handle antes de que otro lo haga.</p>
+      </article>
+      <article class="data-card">
+        <h3>PIN obligatorio</h3>
+        <p>Ajustes > Privacidad > Código PIN. Lo podés rotar cuando quieras.</p>
+      </article>
+      <article class="data-card">
+        <h3>Onboarding guiado</h3>
+        <p>Incluí el PIN en tu flujo de bienvenida y autorizá sólo a quienes cerraron el proceso.</p>
+      </article>
+    </section>
+
+    <footer>
+      <section>
+        <h4>Unite a la comunidad de WhatsApp</h4>
+        <p>Recibí guías, tutoriales y alertas de producto directamente en tu chat.</p>
+        <a href="https://whatsapp.com/channel/catalogo-craftdigit" target="_blank" rel="noopener">Entrar al canal</a>
+      </section>
+      <section>
+        <h4>Dev Zone</h4>
+        <p>¿Te sirvió esta landing? Copiá el repo y dejá tu ⭐ en GitHub para que siga creciendo.</p>
+        <a href="https://github.com/craftdigit/actualizacion-wa" target="_blank" rel="noopener">Visitar repo en GitHub ⭐</a>
+      </section>
+    </footer>
+  </body>
+</html>

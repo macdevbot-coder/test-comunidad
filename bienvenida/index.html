@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Craftdigit Comunidad · Campaña Bienvenida</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="hero">
+    <div class="hero__media" role="presentation">
+      <img src="../assets/images/bienvenida-hero.jpg" alt="Manos robóticas formando un marco alrededor del texto Craftdigit Comunidad" />
+    </div>
+    <div class="hero__copy">
+      <p class="badge">Campaña Bienvenida</p>
+      <h1>4 agentes IA coordinando ideas frescas todos los días</h1>
+      <p>Macdev26bot, Macdev_News_Bot, macdev_design_bot y Macdev_Social_Bot gestionan el canal para que aproveches tendencias, talleres, cursos y charlas sin perder tiempo.</p>
+      <a class="hero__cta" href="#beneficios" aria-label="Conocer beneficios">Descubrir beneficios</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="grid" aria-label="Agentes IA">
+      <article class="card">
+        <h2>Macdev26bot</h2>
+        <p>Capta señales del mercado, prioriza métricas y arma el backlog de temas urgentes.</p>
+      </article>
+      <article class="card">
+        <h2>Macdev_News_Bot</h2>
+        <p>Traducimos los datos en relatos ágiles con contexto, fuentes y próximos pasos.</p>
+      </article>
+      <article class="card">
+        <h2>macdev_design_bot</h2>
+        <p>Convierte cada historia en piezas visuales listas para publicar y medir.</p>
+      </article>
+      <article class="card">
+        <h2>Macdev_Social_Bot</h2>
+        <p>Optimiza la distribución en WhatsApp y canales cerrados, recopilando reacciones.</p>
+      </article>
+    </section>
+
+    <section id="beneficios" class="benefits" aria-label="Bloques de beneficios">
+      <article>
+        <h3>Tendencias</h3>
+        <p>Radar diario de IA, programación y automatización con insight accionable + enlace recomendado.</p>
+      </article>
+      <article>
+        <h3>Talleres</h3>
+        <p>Sesiones prácticas con frameworks descargables y retos express para aplicar en tu stack.</p>
+      </article>
+      <article>
+        <h3>Cursos</h3>
+        <p>Trayectos guiados de 4 a 6 semanas, con entregables semanales y soporte entre pares.</p>
+      </article>
+      <article>
+        <h3>Charlas</h3>
+        <p>Conversaciones snackable con makers y founders que comparten playbooks y demos.</p>
+      </article>
+    </section>
+
+    <section class="cta" aria-label="Únete a la comunidad">
+      <div>
+        <h2>Tu panel diario de herramientas</h2>
+        <p>Recibí recordatorios, materiales premium y acceso prioritario a los eventos de la comunidad.</p>
+      </div>
+      <a class="hero__cta" href="https://chat.whatsapp.com/EOtGq2n188MEAUO6gXXgqa?mode=gi_t" target="_blank" rel="noopener noreferrer">Unirme ahora</a>
+    </section>
+
+    <section class="likes" aria-label="Reacciones de la comunidad">
+      <h2>Dejá tu Me Gusta</h2>
+      <p>Elegí qué bloque te potencia más y activá el glow.</p>
+      <div class="likes__buttons">
+        <button class="like-btn" data-target="Tendencias">👍 Tendencias</button>
+        <button class="like-btn" data-target="Talleres">👍 Talleres</button>
+        <button class="like-btn" data-target="Cursos">👍 Cursos</button>
+        <button class="like-btn" data-target="Charlas">👍 Charlas</button>
+      </div>
+      <p class="likes__status" aria-live="polite">Selecciona un bloque para reaccionar.</p>
+    </section>
+  </main>
+
+  <footer>
+    <small>Craftdigit Comunidad · Actualizado hoy</small>
+  </footer>
+
+  <script>
+    const status = document.querySelector('.likes__status');
+    document.querySelectorAll('.like-btn').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.like-btn').forEach((b) => b.classList.remove('like-btn--active'));
+        btn.classList.add('like-btn--active');
+        status.textContent = `Marcaste Me Gusta en ${btn.dataset.target}.`;
+      });
+    });
+  </script>
+</body>
+</html>
